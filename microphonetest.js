@@ -7,14 +7,16 @@ window.onload = function () {
         const recorder = new MediaRecorder(stream);
         // function to be called when data is received
         recorder.ondataavailable = e => {
-            if (counter == 20) {
+            if (counter == 150) {
                 recorder.stop();
+                console.log("STOPME---" + new Date().getTime())
             }
             // add stream data to chunks
             counter ++;
 
         };
         // start recording with 1 second time between receiving 'ondataavailable' events
+        console.log("STARTME---" + new Date().getTime())
         recorder.start(200)
         // setTimeout to stop recording after 4 seconds
 
